@@ -30,6 +30,7 @@ const config: MenuEntry[] = [
     icon: 'PoolIcon',
     href: '/nests',
   },
+  
   // {
   //   label: 'Pools',
   //   icon: 'PoolIcon',
@@ -45,24 +46,24 @@ const config: MenuEntry[] = [
   //   icon: 'NftIcon',
   //   href: '/nft',
   // },
-  // {
-  //   label: 'Info',
-  //   icon: 'InfoIcon',
-  //   items: [
-  //     {
-  //       label: 'Github',
-  //       href: 'https://github.com/cswapdevteam/cryptoswap',
-  //     },
-  //     {
-  //       label: 'Docs',
-  //       href: 'https://github.com/cswapdevteam/cryptoswap',
-  //     },
-  //     {
-  //       label: 'Medium',
-  //       href: 'https://medium.com/@cswapfinance',
-  //     }
-  //   ],
-  // },
+  {
+    label: 'Info',
+    icon: 'InfoIcon',
+    items: [
+      // {
+      //   label: 'Github',
+      //   href: 'https://github.com/cswapdevteam/cryptoswap',
+      // },
+      {
+        label: 'Docs',
+        href: 'https://app.gitbook.com/@cryptoswap/s/cryptoswap/',
+      },
+      // {
+      //   label: 'Medium',
+      //   href: 'https://medium.com/@cswapfinance',
+      // }
+    ],
+  },
 ]
 
 export default config

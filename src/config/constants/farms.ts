@@ -14,13 +14,13 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       97: '',
       56: '',
-      137: '0x2B314Cb52C68191E4A8192f91Df6E9Ab8377cCe2', // CSWAP - USDC
+      137: '0x8b84F83D4336e4De9533C15c25741A0dd25d530B', // CSWAP - USDC
     },
     tokenSymbol: 'CSWAP',
     tokenAddresses: {
       97: '',
       56: '',
-      137: '0x3FaF2f0498F09D6c0678f70138311Ae15c048fA9',
+      137: '0xeC5AE5A69045eCf74c5C864d2876826BE38e7846',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -35,7 +35,7 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       97: '',
       56: '',
-      137: '0x3eF2BA2ee6576284D840d42b982a8957C3943EB1', // CSWAP - USDC
+      137: '0x287e51793Cce1FC6B442d246467b7C538dE56000', // CSWAP - USDC
     },
     tokenSymbol: 'USDC',
     tokenAddresses: {
@@ -57,7 +57,7 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       97: '',
       56: '',
-      137: '0xBcDBa093BAb2Ceae147A07257F5318f9a1561E7E', // CSWAP - USDC
+      137: '0xc67e89A3586D69deD92633F384F6690f41C6100A', // CSWAP - USDC
     },
     tokenSymbol: 'FISH',
     tokenAddresses: {
@@ -79,13 +79,13 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       97: '',
       56: '',
-      137: '0x3eF2BA2ee6576284D840d42b982a8957C3943EB1', // CSWAP - USDC
+      137: '0xc67e89A3586D69deD92633F384F6690f41C6100A', // CSWAP - USDC
     },
     tokenSymbol: 'CSWAP',
     tokenAddresses: {
       97: '',
       56: '',
-      137: '0x3FaF2f0498F09D6c0678f70138311Ae15c048fA9',
+      137: '0xeC5AE5A69045eCf74c5C864d2876826BE38e7846',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
