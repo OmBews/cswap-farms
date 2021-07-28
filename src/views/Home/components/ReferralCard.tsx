@@ -87,18 +87,20 @@ const ReferralCard = () => {
           <CardValue value={yourTotalReferrals} prefix="" decimals={0} />
 
           {/* </Heading> */}
+
+          <Text color="textSubtle">Your Referee</Text>
+
+<Text bold fontSize="20px">
+  {yourReferree}
+</Text>
+<Button onClick={()=>{
+  copyRefLink(myRefLink)
+}}>Copy Your Referral Link</Button>
         </>
       </CardBody>
-      <CardBody>
-        <Text color="textSubtle">Your Referee</Text>
-
-        <Text bold fontSize="20px">
-          {yourReferree}
-        </Text>
-        <Button onClick={()=>{
-          copyRefLink(myRefLink)
-        }}>Copy Your Referral Link</Button>
-      </CardBody>
+      {/* <CardBody>
+       
+      </CardBody> */}
     </StyledTotalValueLockedCard>
   )
 }

@@ -28,3 +28,11 @@ export const getLotteryTicketAddress = () => {
 export const getReferralAddress = () => {
   return addresses.referral[chainId]
 }
+
+export const getBUSDAddress = () => {
+  return addresses.busd[chainId]
+}
+
+export const getPresaleAddress = () => {
+  return addresses.presale[chainId]
+}

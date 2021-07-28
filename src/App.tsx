@@ -7,6 +7,7 @@ import { useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
+
 // import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
 
 // Route-based code splitting
@@ -14,6 +15,8 @@ import PageLoader from './components/PageLoader'
 const Home = lazy(() => import('./views/Home'))
 const Farms = lazy(() => import('./views/Farms'))
 const Profit = lazy(() => import('./views/Profit'))
+const Presale = lazy(() => import('./views/Presale/Presale'))
+
 // const Lottery = lazy(() => import('./views/Lottery'))
 // const Pools = lazy(() => import('./views/Pools'))
 // const Ifos = lazy(() => import('./views/Ifos'))
@@ -72,6 +75,11 @@ const App: React.FC = () => {
             <Route path="/profit">
               <Profit />
             </Route>
+
+            <Route path="/presale">
+              <Presale />
+            </Route>
+            
             {/* <Route path="/pools"> */}
             {/*  <Pools /> */}
             {/* </Route> */}

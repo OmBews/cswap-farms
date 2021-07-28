@@ -12,13 +12,18 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://quickswap.exchange/#/swap?outputCurrency=0x3FaF2f0498F09D6c0678f70138311Ae15c048fA9',
+        href: 'https://quickswap.exchange/#/swap?outputCurrency=0xeC5AE5A69045eCf74c5C864d2876826BE38e7846',
       },
       {
         label: 'Liquidity',
-        href: 'https://quickswap.exchange/#/add/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/0x3FaF2f0498F09D6c0678f70138311Ae15c048fA9',
+        href: 'https://quickswap.exchange/#/add/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/0xeC5AE5A69045eCf74c5C864d2876826BE38e7846',
       },
     ],
+  },
+  {
+    label: 'Presale',
+    icon: 'NftIcon',
+    href: '/presale',
   },
   {
     label: 'Farms',
@@ -41,11 +46,7 @@ const config: MenuEntry[] = [
   //   icon: 'TicketIcon',
   //   href: '/profit',
   // },
-  // {
-  //   label: 'NFT',
-  //   icon: 'NftIcon',
-  //   href: '/nft',
-  // },
+  
   {
     label: 'Info',
     icon: 'InfoIcon',

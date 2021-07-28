@@ -12,7 +12,7 @@ import ProfitStats from './components/ProfitStats'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
 import TwitterCard from './components/TwitterCard'
 import ReferralCard from "./components/ReferralCard"
-
+import AuditCard from "./components/AuditCard"
 
 const Hero = styled.div`
   align-items: center;
@@ -65,8 +65,15 @@ const Home: React.FC = () => {
           <TwitterCard />
           <CakeStats />
           <TotalValueLockedCard />
+        
+
         </Cards>
-        <ReferralCard />
+
+       <Cards>
+       <ReferralCard /> 
+        <AuditCard />
+       
+       </Cards>
 
       </div>
     </Page>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AbiItem } from 'web3-utils'
 import { ContractOptions } from 'web3-eth-contract'
 import useWeb3 from 'hooks/useWeb3'
-import { getMasterChefAddress, getCakeAddress, getLotteryAddress, getLotteryTicketAddress,getReferralAddress } from 'utils/addressHelpers'
+import { getMasterChefAddress, getCakeAddress,getBUSDAddress, getLotteryAddress,getPresaleAddress, getLotteryTicketAddress,getReferralAddress } from 'utils/addressHelpers'
 import { poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
 import ifo from 'config/abi/ifo.json'
@@ -15,7 +15,12 @@ import masterChef from 'config/abi/masterchef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefBnb from 'config/abi/sousChefBnb.json'
 import referral from 'config/abi/refferal.json'
+import presale from 'config/abi/presale.json'
 
+
+export const useBUSD = () => {
+  return useERC20(getBUSDAddress())
+}
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
   const web3 = useWeb3()
@@ -27,6 +32,13 @@ const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOp
 
   return contract
 }
+
+
+export const usePresale = () => {
+  const abi = (presale as unknown) as AbiItem
+  return useContract(abi, getPresaleAddress())
+}
+
 
 /**
  * Helper hooks to get specific contracts (by ABI)

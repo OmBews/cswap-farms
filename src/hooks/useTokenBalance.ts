@@ -27,6 +27,29 @@ const useTokenBalance = (tokenAddress: string) => {
   return balance
 }
 
+
+export const useMaticBalance = () => {
+  const {balance,account }: { balance: string, account: string} = useWallet()
+
+  const [maticBalance, setMaticBalance] = useState(new BigNumber(0))
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      setMaticBalance(new BigNumber(balance))
+    }
+
+    if (account) {
+      fetchBalance()
+    }
+  }, [account, balance, fastRefresh])
+
+  return maticBalance
+
+}
+
+
+
 export const useTotalSupply = () => {
   const { slowRefresh } = useRefresh()
   const [totalSupply, setTotalSupply] = useState<BigNumber>()

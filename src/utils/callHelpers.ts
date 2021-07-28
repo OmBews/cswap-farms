@@ -1,5 +1,21 @@
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
+import Cookies from 'universal-cookie';
+// import rot13 from './encode'
+import { isAddress } from './web3'
+
+const cookies = new Cookies();
+
+
+
+function rot13(s) {
+  return s.replace(/[A-Z]/gi, c =>
+    "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"[
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c) ] )
+}
+
+
+
 
 export const approve = async (lpContract, masterChefContract, account) => {
   return lpContract.methods
@@ -7,22 +23,17 @@ export const approve = async (lpContract, masterChefContract, account) => {
     .send({ from: account })
 }
 
-
-const getReferralAddress = ()=>{
-  return  localStorage.getItem('ref') &&   localStorage.getItem('ref') !== 'null' ? localStorage.getItem('ref') : '0x0000000000000000000000000000000000000000'
-
-}
-
-
-
 export const stake = async (masterChefContract, pid, amount, account) => {
-
-
-
-
- 
+  let ref
+  if(cookies.get('ref')) {
+    if(isAddress( rot13(cookies.get('ref')) )) {
+      ref = rot13(cookies.get('ref'))
+    }
+  } else {
+    ref = "0x0000000000000000000000000000000000000000"
+  }
   return masterChefContract.methods
-    .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(),getReferralAddress())
+    .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).toString(), ref)
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
@@ -92,9 +103,16 @@ export const sousEmegencyUnstake = async (sousChefContract, amount, account) => 
 }
 
 export const harvest = async (masterChefContract, pid, account) => {
-
+  let ref
+  if(cookies.get('ref')) {
+    if(isAddress( rot13(cookies.get('ref')) )) {
+      ref = rot13(cookies.get('ref'))
+    }
+  } else {
+    ref = "0x0000000000000000000000000000000000000000"
+  }
   return masterChefContract.methods
-    .deposit(pid, '0',getReferralAddress())
+    .deposit(pid, '0', ref)
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
@@ -118,3 +136,21 @@ export const soushHarvestBnb = async (sousChefContract, account) => {
       return tx.transactionHash
     })
 }
+
+export const buy = async (presaleContract, tokenAddress, amount, account) => {
+  return presaleContract.methods
+    .buyToken()
+    .send({ from: account,value:new BigNumber(amount).times(new BigNumber(10).pow(18)).toString() })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+}
+
+export const claim = async (presaleContract, account) => {
+  return presaleContract.methods
+    .claimGoldIngot()
+    .send({ from: account })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+} 
