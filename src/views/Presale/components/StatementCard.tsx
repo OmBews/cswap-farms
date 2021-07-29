@@ -28,18 +28,15 @@ const StatementCard = () => {
     return (
         <>
                <StyledHeading>Information</StyledHeading>
-               <StyleText>Presale start: Jul 23, 08:00 UTC</StyleText>
-               <StyleText>Presale end: Jul 29, 08:00 UTC</StyleText>
-               <StyleText>Presale Gold Ingot Rate: 150 BUSD/CSWAP or 15 GNT/CSWAP</StyleText>
-               <StyleText>Hard Caps: 5750 CSWAPs</StyleText>
-               <StyleText>Total Gold Ingot(CSWAP) supply: 6000 CSWAP</StyleText>
+               <StyleText>Presale start: Aug 1, 08:00 UTC</StyleText>
+               <StyleText>Presale end: Aug 2, 08:00 UTC</StyleText>
+               <StyleText>Total CSWAP supply: 20000 CSWAP</StyleText>
                
                <StyledHeading>How To</StyledHeading>
-               <StyleText>1) Choose BUSD or GNT you want to use to buy CSWAP</StyleText>
-               <StyleText>2) Click the unlock button and approve contract</StyleText>
-               <StyleText>3) Click the buy button and enter the amount of BUSD or GNT you wish to pay</StyleText>
-               <StyleText>4) Wait for claim to be activated</StyleText>
-               <StyleText>5) Click the claim button to get your Gold Ingot (CSWAP)</StyleText>
+               <StyleText>1) Click the unlock button </StyleText>
+               <StyleText>2) Click the buy button and enter the MATIC you wish to pay</StyleText>
+               <StyleText>3) You can claim tokens immediately after the payment you will pay</StyleText>
+
         </>
     )
      

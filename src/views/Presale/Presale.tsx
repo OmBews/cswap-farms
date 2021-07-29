@@ -90,7 +90,7 @@ const Presale: React.FC = () => {
                 {/* <BuyGITByGNTCard /> */}
                 {/* <ClaimGITCard /> */}
             </FlexLayout>
-                {/* <StatementCard /> */}
+                <StatementCard />
         </StyledPage>
         </>
     )

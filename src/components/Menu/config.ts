@@ -20,21 +20,39 @@ const config: MenuEntry[] = [
       },
     ],
   },
+  // {
+  //   label: 'Presale',
+  //   icon: 'NftIcon',
+  //   href: '/presale',
+  // },
+
+
   {
-    label: 'Presale',
-    icon: 'NftIcon',
-    href: '/presale',
-  },
-  {
-    label: 'Farms',
+    label: 'Farms (Coming Soon)',
     icon: 'FarmIcon',
-    href: '/farms',
+    href: '/',
   },
   {
-    label: 'Pools',
+    label: 'Pools (Coming Soon)',
     icon: 'PoolIcon',
-    href: '/nests',
+    href: '/',
   },
+
+
+
+
+
+  // {
+  //   label: 'Farms',
+  //   icon: 'FarmIcon',
+  //   href: '/farms',
+  // },
+  // {
+  //   label: 'Pools',
+  //   icon: 'PoolIcon',
+  //   href: '/nests',
+  // },
+
   
   // {
   //   label: 'Pools',

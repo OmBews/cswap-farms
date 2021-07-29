@@ -133,7 +133,7 @@ const BuyGITByBUSDCard = () => {
                 </Flex>
                 <Flex justifyContent='space-between' mb="10px">
                     <Text>Price:</Text>
-                    <Text bold>150 CSWAP = 1 MATIC</Text>
+                    <Text bold>1.2 CSWAP = 1 MATIC</Text>
                 </Flex>
                 <Action>
                     {account ?
