@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from '@gameswapfinance/uikit'
+import { Text } from '@lukkasromero/cswap-uikit'
 
 interface PastRoundCardErrorProps {
   error: {

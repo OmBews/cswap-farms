@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Heading, Card, CardBody, Text } from '@gameswapfinance/uikit'
+import { Heading, Card, CardBody, Text } from '@lukkasromero/cswap-uikit'
 import styled from 'styled-components'
 import Divider from 'views/Farms/components/Divider'
 

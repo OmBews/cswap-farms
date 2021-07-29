@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Heading, Card, CardBody, CardHeader, Text, HelpIcon, Link, Flex } from '@gameswapfinance/uikit'
+import { Heading, Card, CardBody, CardHeader, Text, HelpIcon, Link, Flex } from '@lukkasromero/cswap-uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'

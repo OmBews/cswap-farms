@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Heading, Card, CardBody, Text } from '@gameswapfinance/uikit'
+import { Heading, Card, CardBody, Text } from '@lukkasromero/cswap-uikit'
 import Countdown from 'react-countdown';
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'

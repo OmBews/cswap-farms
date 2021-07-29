@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout } from '@gameswapfinance/uikit'
+import { Heading, Text, BaseLayout } from '@lukkasromero/cswap-uikit'
 
 import useI18n from 'hooks/useI18n'
 // eslint-disable-next-line import/no-unresolved

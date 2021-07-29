@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, BaseLayout } from '@gameswapfinance/uikit'
+import { Heading, BaseLayout } from '@lukkasromero/cswap-uikit'
 import Page from 'components/layout/Page'
 import FlexLayout from 'components/layout/Flex'
 import CountdownCard from './components/CountdownCard'

@@ -1,4 +1,4 @@
-import { MenuEntry } from '@gameswapfinance/uikit'
+import { MenuEntry } from '@lukkasromero/cswap-uikit'
 
 const config: MenuEntry[] = [
   {
@@ -41,6 +41,8 @@ const config: MenuEntry[] = [
 
 
 
+
+  
 
   // {
   //   label: 'Farms',

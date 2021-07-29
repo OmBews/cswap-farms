@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useMemo, useState } from 'react'
 import {ThemeProvider} from 'styled-components'
-import { Button, Modal, dark ,light} from '@gameswapfinance/uikit'
+import { Button, Modal, dark ,light} from '@lukkasromero/cswap-uikit'
 import ModalActions from 'components/ModalActions'
 import TokenInput from 'components/TokenInput'
 import useI18n from 'hooks/useI18n'

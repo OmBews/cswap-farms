@@ -1,6 +1,6 @@
 import React,{useCallback, useEffect,useState} from 'react'
 import styled from 'styled-components'
-import { Button, Card, CardBody, Heading, Skeleton, Text } from '@gameswapfinance/uikit'
+import { Button, Card, CardBody, Heading, Skeleton, Text } from '@lukkasromero/cswap-uikit'
 import {useReferralContract} from 'hooks/useContract'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 
