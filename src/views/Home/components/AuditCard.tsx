@@ -1,93 +1,89 @@
-import React,{useCallback, useEffect,useState} from 'react'
+import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Button, Card, CardBody, Heading, Skeleton, Text } from '@lukkasromero/cswap-uikit'
-import {useReferralContract} from 'hooks/useContract'
+import { Heading, Card, CardBody, Button } from '@lukkasromero/cswap-uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
+import BigNumber from 'bignumber.js'
+// eslint-disable-next-line import/no-unresolved
+import useI18n from 'hooks/useI18n'
+// eslint-disable-next-line import/no-unresolved
+import { useAllHarvest } from 'hooks/useHarvest'
+// eslint-disable-next-line import/no-unresolved
+import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
+// eslint-disable-next-line import/no-unresolved
+import UnlockButton from 'components/UnlockButton'
+import CakeHarvestBalance from './CakeHarvestBalance'
+import CakeWalletBalance from './CakeWalletBalance'
+import { usePriceCakeBusd } from '../../../state/hooks'
+import useTokenBalance from '../../../hooks/useTokenBalance'
+import { getCakeAddress } from '../../../utils/addressHelpers'
+import useAllEarnings from '../../../hooks/useAllEarnings'
+import { getBalanceNumber } from '../../../utils/formatBalance'
 
-import CardValue from './CardValue'
-
-const StyledTotalValueLockedCard = styled(Card)`
-  align-items: center;
-  display: flex;
-  flex: 1;
-  justify-content:space-between;
+const StyledFarmStakingCard = styled(Card)`
+  // background-image: url('/images/egg/2a.png');
+  background-repeat: no-repeat;
+  background-position: top right;
+  min-height: 376px;
 `
 
-const AuditCard  = () => {
+const Block = styled.div`
+  margin-bottom: 16px;
+`
 
+const CardImage = styled.img`
+  margin-bottom: 16px;
+`
+
+const Label = styled.div`
+  color: ${({ theme }) => theme.colors.textSubtle};
+  font-size: 14px;
+`
+
+const Actions = styled.div`
+  margin-top: 24px;
+`
+
+const FarmedStakingCard = () => {
+  const [pendingTx, setPendingTx] = useState(false)
   const { account } = useWallet()
+  const TranslateString = useI18n()
+  const farmsWithBalance = useFarmsWithBalance()
+  const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress()))
+  const eggPrice = usePriceCakeBusd().toNumber()
+  const allEarnings = useAllEarnings()
+  const earningsSum = allEarnings.reduce((accum, earning) => {
+    return accum + new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber()
+  }, 0)
+  const balancesWithValue = farmsWithBalance.filter((balanceType) => balanceType.balance.toNumber() > 0)
 
-  const [yourReferree,setYourReferree] = useState("-")
-  const [yourEarnings,setYourEarnings] = useState(0)
-  const [yourTotalReferrals,setYourTotalReferrals] = useState(0)
-  const [myRefLink,setMyRefLink] = useState("hii")
+  const { onReward } = useAllHarvest(balancesWithValue.map((farmWithBalance) => farmWithBalance.pid))
 
-
-  const referralContract = useReferralContract();
-
-
- 
-
-
-
-  const loadData = useCallback(async() => {
-    if(referralContract && account){
-      let _myReferral = await referralContract.methods.getReferrer(account).call();
-      const _myEarnings = await referralContract.methods.totalReferralCommissions(account).call();
-      const _myTotalReferrals = await referralContract.methods.referralsCount(account).call();
-      if(_myReferral === "0x0000000000000000000000000000000000000000"){
-        _myReferral = "-"
-      }
-      setYourReferree(_myReferral)
-      setYourEarnings(_myEarnings/1e18)
-      setYourTotalReferrals(_myTotalReferrals)
-
-      setMyRefLink(`https://cswap.app?ref=${account}`)
+  const harvestAllFarms = useCallback(async () => {
+    setPendingTx(true)
+    try {
+      await onReward()
+    } catch (error) {
+      // TODO: find a way to handle when the user rejects transaction or it fails
+    } finally {
+      setPendingTx(false)
     }
-  
+  }, [onReward])
 
-  }, [referralContract,account]) 
-
-
-
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
- 
-  const  copyRefLink=(text:any) =>{
-
-    if(!account){
-      alert("Please Connect Your Wallet First")
-      return null
-    }
-    const input = document.createElement('textarea');
-    input.innerHTML = text;
-    document.body.appendChild(input);
-    input.select();
-    const result = document.execCommand('copy');
-    document.body.removeChild(input);
-    alert("Referral Link copied")
-    return result;
-}
   return (
-    <StyledTotalValueLockedCard>
+    <StyledFarmStakingCard>
       <CardBody>
-        <Heading size="lg" mb="24px">
-          Audited By 
-        </Heading>
-        <>
-          {/* <Heading size="xl">{`$${tvl}`}</Heading> */}
-          {/* <Heading size="xl"> */}
-          <img  alt="techrate" src="/images/techrate.png"   width={250}/>
-         
-          <img  alt="rug doc" src="/images/rugdoc.png"   width={250}/>
+        <Heading size="xl" mb="24px">
+      Audits & Reviews
 
-          {/* </Heading> */}
-        </>
+        </Heading>
+        <img  alt="techrate" src="/images/techrate.png"   width={250}/>
+         
+         <img  alt="rug doc" src="/images/rugdoc.png"   width={250} style={{marginTop:10}}/>
+         
+     
       </CardBody>
-    
-    </StyledTotalValueLockedCard>
+    </StyledFarmStakingCard>
   )
 }
 
-export default AuditCard
+export default FarmedStakingCard

@@ -3,6 +3,8 @@ import { Card, CardBody, Heading, Text } from '@lukkasromero/cswap-uikit'
 import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
 import { Timeline } from 'react-twitter-widgets'
+import Countdown from 'react-countdown'
+import CountdownCard from 'views/Presale/components/CountdownCard'
 // eslint-disable-next-line import/no-unresolved
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 // eslint-disable-next-line import/no-unresolved
@@ -24,6 +26,22 @@ const Row = styled.div`
   justify-content: space-between;
   margin-bottom: 8px;
 `
+const StyleNumber = styled(Heading)`
+  font-size: 22px;
+  margin-bottom: 36px;
+`
+
+
+
+const endCountDownRenderer = ({ days, hours, minutes, seconds, completed }) => {
+  return (
+    <>
+      <StyleNumber as="h3" size="MD">
+        {days > 0?`Days${":"}`:""}  {hours} Hours : {minutes} Minutes : {seconds} Seconds
+      </StyleNumber>
+    </>
+  )
+}
 
 const TwitterCard = () => {
   const TranslateString = useI18n()
@@ -32,9 +50,11 @@ const TwitterCard = () => {
     <StyledTwitterCard>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(10003, 'Newsletter')}
+          {/* {TranslateString(10003, 'Newsletter')} */}
+          Farms starting in
         </Heading>
-        <Timeline
+        {/* <Timeline
+
           dataSource={{
             sourceType: 'profile',
             screenName: 'Cryptoswap8',
@@ -44,7 +64,10 @@ const TwitterCard = () => {
             chrome: 'noheader, nofooter',
             width: '400',
           }}
-        />
+        /> */}
+
+<Countdown date={1628150400000} renderer={endCountDownRenderer} />
+
       </CardBody>
     </StyledTwitterCard>
   )

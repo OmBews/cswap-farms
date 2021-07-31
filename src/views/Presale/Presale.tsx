@@ -6,6 +6,9 @@ import FlexLayout from 'components/layout/Flex'
 import CountdownCard from './components/CountdownCard'
 import StatementCard from './components/StatementCard'
 import DataCard from './components/DataCard'
+
+import InfoCard from './components/InfoCard'
+
 import BuyGITByBUSDCard from './components/BuyGITByBUSDCard'
 // import BuyGITByGNTCard from './components/BuyGITByGNTCard'
 import ClaimGITCard from './components/ClaimGITCard'
@@ -85,12 +88,16 @@ const Presale: React.FC = () => {
                 <DataCard />
                 <CountdownCard />
             </Cards>
-            <FlexLayout>
-                <BuyGITByBUSDCard />
+            <Cards>
+            <BuyGITByBUSDCard />
+
+            <InfoCard />
+
+
                 {/* <BuyGITByGNTCard /> */}
                 {/* <ClaimGITCard /> */}
-            </FlexLayout>
-                <StatementCard />
+            </Cards>
+                {/* <StatementCard /> */}
         </StyledPage>
         </>
     )

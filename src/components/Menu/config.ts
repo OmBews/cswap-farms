@@ -20,11 +20,11 @@ const config: MenuEntry[] = [
       },
     ],
   },
-  // {
-  //   label: 'Presale',
-  //   icon: 'NftIcon',
-  //   href: '/presale',
-  // },
+  {
+     label: 'Presale',
+     icon: 'NftIcon',
+     href: '/presale',
+  },
 
 
   {
@@ -39,6 +39,11 @@ const config: MenuEntry[] = [
   },
 
 
+  {
+   label: 'Presale',
+   icon: 'NftIcon',
+   href: '/presale',
+  },
 
 
 
@@ -61,28 +66,41 @@ const config: MenuEntry[] = [
   //   icon: 'PoolIcon',
   //   href: '/pools',
   // },
-  // {
-  //   label: 'Dividends',
-  //   icon: 'TicketIcon',
-  //   href: '/profit',
-  // },
+   {
+     label: 'Audits',
+     icon: 'AuditIcon',
+     items: [
+      {
+        label: 'RugDoc',
+        href: 'https://rugdoc.io/project/cryptoswap/',
+      },
+      {
+        label: 'DappRadar',
+        href: 'https://dappradar.com/polygon/defi/cswap',
+      },
+      {
+        label: 'Audit Book' ,
+        href: 'https://cryptoswap.gitbook.io/cryptoswap/security/untitled'
+      }
+     ]
+   },
   
   {
     label: 'Info',
     icon: 'InfoIcon',
     items: [
-      // {
-      //   label: 'Github',
-      //   href: 'https://github.com/cswapdevteam/cryptoswap',
-      // },
+       {
+         label: 'Github',
+         href: 'https://github.com/lukkasromero',
+       },
       {
         label: 'Docs',
         href: 'https://app.gitbook.com/@cryptoswap/s/cryptoswap/',
       },
-      // {
-      //   label: 'Medium',
-      //   href: 'https://medium.com/@cswapfinance',
-      // }
+       {
+         label: 'Chart (SOON)',
+         href: '/#',
+       }
     ],
   },
 ]

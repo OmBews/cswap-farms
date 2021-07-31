@@ -67,7 +67,9 @@ const DataCard = () => {
         <StyledCard>
             <CardBody>
                 <StyledHeading>PRESALE STATUS</StyledHeading>
-                <Flex justifyContent='space-between' mb="3px">
+                
+
+                   <Flex justifyContent='space-between' mb="3px">
                     <StyleText>Price:</StyleText>
                     <StyleTextt bold>1.2 CSWAP = 1 MATIC</StyleTextt>
                 </Flex>
@@ -80,7 +82,7 @@ const DataCard = () => {
                
                 <Flex justifyContent='space-between' mb="3px">
                     <StyleText>Total CSWAP for presale:</StyleText>
-                    <StyleTextt bold>20,000</StyleTextt>
+                    <StyleTextt bold>10,000</StyleTextt>
                 </Flex>
                 <Flex justifyContent='space-between' mb="3px">
                     <StyleText>CSWAP remaining:</StyleText>
