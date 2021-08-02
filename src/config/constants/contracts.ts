@@ -2,12 +2,12 @@ export default {
   cake: {
     56: '0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6',
     97: '',
-    137: '0xeC5AE5A69045eCf74c5C864d2876826BE38e7846', // CSWAP
+    137: '0x49Ac2737A92c580eD253A067E1dcbDd82bDe7682', // CSWAP
   },
   masterChef: {
     56: '0xe70E9185F5ea7Ba3C5d63705784D8563017f2E57',
     97: '',
-    137: '0x7724F7c411d19047832099EAABC231D4c2aeD218' 
+    137: '0xe5159f655ed1616054ecf9ef4cce809ef1129c45' 
   },
   sousMasterChef: {
     56: '',

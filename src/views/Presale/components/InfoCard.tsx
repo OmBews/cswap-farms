@@ -89,7 +89,7 @@ const DataCard = () => {
 </StyleText>
                 </Flex>
                 <Flex justifyContent='space-between' mb="3px">
-                    <StyleText>3) You can claim tokens immediately after the payment you will pay</StyleText>
+                    <StyleText>3) You can claim tokens in your wallet immediately after the payment</StyleText>
                 </Flex>
                
               

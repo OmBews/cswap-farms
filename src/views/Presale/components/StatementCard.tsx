@@ -35,7 +35,7 @@ const StatementCard = () => {
                <StyledHeading>How To</StyledHeading>
                <StyleText>1) Click the unlock button </StyleText>
                <StyleText>2) Click the buy button and enter the MATIC you wish to pay</StyleText>
-               <StyleText>3) You can claim tokens immediately after the payment you will pay</StyleText>
+               <StyleText>3) You can claim tokens in your wallet immediately after the payment</StyleText>
 
         </>
     )

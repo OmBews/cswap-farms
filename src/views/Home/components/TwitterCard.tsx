@@ -37,7 +37,7 @@ const endCountDownRenderer = ({ days, hours, minutes, seconds, completed }) => {
   return (
     <>
       <StyleNumber as="h3" size="MD">
-        {days > 0?`Days${":"}`:""}  {hours} Hours : {minutes} Minutes : {seconds} Seconds
+        {days > 0?`${days} Days:`:""}  {hours} Hours : {minutes} Minutes : {seconds} Seconds
       </StyleNumber>
     </>
   )

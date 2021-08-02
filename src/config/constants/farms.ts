@@ -3,39 +3,14 @@ import { FarmConfig, QuoteToken } from './types'
 
 const farms: FarmConfig[] = [
 
-
-
-
-
-   {
-    pid: 0,
-    risk: 5,
-    lpSymbol: 'CSWAP-MATIC',
-    lpAddresses: {
-      97: '',
-      56: '',
-      137: '0x8b84F83D4336e4De9533C15c25741A0dd25d530B', // CSWAP - USDC
-    },
-    tokenSymbol: 'CSWAP',
-    tokenAddresses: {
-      97: '',
-      56: '',
-      137: '0xeC5AE5A69045eCf74c5C864d2876826BE38e7846',
-    },
-    quoteTokenSymbol: QuoteToken.BNB,
-    quoteTokenAdresses: contracts.wbnb,
-  },
-
-
-
   {
-    pid: 1,
+    pid: 0,
     risk: 5,
     lpSymbol: 'CSWAP-USDC',
     lpAddresses: {
       97: '',
       56: '',
-      137: '0x287e51793Cce1FC6B442d246467b7C538dE56000', // CSWAP - USDC
+      137: '0xB5f05231F422De78963A42DBC671bD42edDb5D77', // CSWAP - USDC
     },
     tokenSymbol: 'USDC',
     tokenAddresses: {
@@ -47,17 +22,15 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
 
-
-
   
   {
-    pid: 2,
+    pid: 1,
     risk: 5,
     lpSymbol: 'CSWAP-FISH',
     lpAddresses: {
       97: '',
       56: '',
-      137: '0xc67e89A3586D69deD92633F384F6690f41C6100A', // CSWAP - USDC
+      137: '0x4059b3923FD5bB54c849a11F6E2BB280153D2bBb', // CSWAP - USDC
     },
     tokenSymbol: 'FISH',
     tokenAddresses: {
@@ -69,27 +42,55 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.cake,
   },
 
-
-  
   {
-    pid: 3,
+    pid: 2,
     risk: 5,
     lpSymbol: 'CSWAP',
     isTokenOnly:true,
     lpAddresses: {
       97: '',
       56: '',
-      137: '0xc67e89A3586D69deD92633F384F6690f41C6100A', // CSWAP - USDC
+      137: '0xB5f05231F422De78963A42DBC671bD42edDb5D77', // CSWAP - USDC
     },
     tokenSymbol: 'CSWAP',
     tokenAddresses: {
       97: '',
       56: '',
-      137: '0xeC5AE5A69045eCf74c5C864d2876826BE38e7846',
+      137: '0x49Ac2737A92c580eD253A067E1dcbDd82bDe7682',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
+
+
+
+   {
+    pid: 3,
+    risk: 5,
+    lpSymbol: 'CSWAP-MATIC',
+    lpAddresses: {
+      97: '',
+      56: '',
+      137: '0x8b84F83D4336e4De9533C15c25741A0dd25d530B', // CSWAP - USDC
+    },
+    tokenSymbol: 'CSWAP',
+    tokenAddresses: {
+      97: '',
+      56: '',
+      137: '0x49Ac2737A92c580eD253A067E1dcbDd82bDe7682',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+
+
+
+
+
+  
+
+  
+
 
 
 
@@ -202,30 +203,10 @@ const farms: FarmConfig[] = [
   },
 
 
+
+
   {
     pid: 9,
-    risk: 5,
-    lpSymbol: 'ETH',
-    isTokenOnly:true,
-    lpAddresses: {
-      97: '',
-      56: '',
-      137: '0xadbF1854e5883eB8aa7BAf50705338739e558E5b', // CSWAP - USDC
-    },
-    tokenSymbol: 'ETH',
-    tokenAddresses: {
-      97: '',
-      56: '',
-      137: '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
-    },
-    quoteTokenSymbol: QuoteToken.BNB,
-    quoteTokenAdresses: contracts.wbnb,
-  },
-
-
-
-  {
-    pid: 10,
     risk: 5,
     lpSymbol: 'FISH',
     lpAddresses: {
@@ -246,7 +227,7 @@ const farms: FarmConfig[] = [
 
 
   {
-    pid: 11,
+    pid: 10,
     risk: 5,
     lpSymbol: 'BNB',
     lpAddresses: {
@@ -268,7 +249,7 @@ const farms: FarmConfig[] = [
 
 
   {
-    pid: 12,
+    pid: 11,
     risk: 5,
     lpSymbol: 'MATIC',
     lpAddresses: {
@@ -288,25 +269,46 @@ const farms: FarmConfig[] = [
   },
 
 
-
+  
   {
-    pid: 13,
+    pid: 12,
     risk: 5,
-    lpSymbol: 'MATIC-USDC',
+    lpSymbol: 'ETH',
+    isTokenOnly:true,
     lpAddresses: {
       97: '',
       56: '',
-      137: '0x160532d2536175d65c03b97b0630a9802c274dad', // MATIC - USDC
+      137: '0xadbF1854e5883eB8aa7BAf50705338739e558E5b', // CSWAP - USDC
     },
-    tokenSymbol: 'MATIC',
+    tokenSymbol: 'ETH',
     tokenAddresses: {
       97: '',
       56: '',
-      137: '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',
+      137: '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
     },
-    quoteTokenSymbol: QuoteToken.BUSD,
-    quoteTokenAdresses: contracts.busd,
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
   },
+
+
+  // {
+  //   pid: 13,
+  //   risk: 5,
+  //   lpSymbol: 'MATIC-USDC',
+  //   lpAddresses: {
+  //     97: '',
+  //     56: '',
+  //     137: '0x160532d2536175d65c03b97b0630a9802c274dad', // MATIC - USDC
+  //   },
+  //   tokenSymbol: 'MATIC',
+  //   tokenAddresses: {
+  //     97: '',
+  //     56: '',
+  //     137: '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',
+  //   },
+  //   quoteTokenSymbol: QuoteToken.BUSD,
+  //   quoteTokenAdresses: contracts.busd,
+  // },
 
 
 
