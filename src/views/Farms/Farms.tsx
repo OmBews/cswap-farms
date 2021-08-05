@@ -26,7 +26,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const TranslateString = useI18n()
   const farmsLP = useFarms()
   const cakePrice = usePriceCakeBusd()
-  const bnbPrice = usePriceBnbBusd()
+  
+  const bnbPrice  = usePriceBnbBusd()
+
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
   const { tokenMode } = farmsProps
 
@@ -57,11 +59,12 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
         //   return farm
         // }
-        const cakeRewardPerBlock = new BigNumber(farm.CSWAPPerBlock || 1)
+        const cakeRewardPerBlock = new BigNumber(farm.cswapPerBlock || 1)
           .times(new BigNumber(farm.poolWeight))
           .div(new BigNumber(10).pow(18))
-        const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
+
+        const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
         let apy = cakePrice.times(cakeRewardPerYear)
 
         let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0)
@@ -69,6 +72,13 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         if (farm.quoteTokenSymbol === QuoteToken.BNB) {
           totalValue = totalValue.times(bnbPrice)
         }
+
+
+        // if (farm.quoteTokenSymbol === QuoteToken.WBTC) {
+
+        //   totalValue = btcPrice.times(totalValue)
+        // }
+
 
         if (totalValue.comparedTo(0) > 0) {
           apy = apy.div(totalValue)

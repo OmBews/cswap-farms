@@ -1562,6 +1562,16 @@
     "@ethersproject/properties" "^5.0.3"
     "@ethersproject/strings" "^5.0.4"
 
+"@gameswapfinance/uikit@lukkasromero/cswap-uikit":
+  version "0.10.8"
+  resolved "https://codeload.github.com/lukkasromero/cswap-uikit/tar.gz/3f281c5ab1263bc55ee06376a54d5d1c1e4055d5"
+  dependencies:
+    "@types/lodash" "^4.14.162"
+    "@types/styled-system" "^5.1.10"
+    lodash "^4.17.20"
+    react-transition-group "^4.4.1"
+    styled-system "^5.1.5"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"

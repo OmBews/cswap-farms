@@ -51,9 +51,9 @@ const TwitterCard = () => {
       <CardBody>
         <Heading size="xl" mb="24px">
           {/* {TranslateString(10003, 'Newsletter')} */}
-          Tweets
+          Farms starting in
         </Heading>
-        <Timeline
+        {/* <Timeline
 
           dataSource={{
             sourceType: 'profile',
@@ -64,8 +64,9 @@ const TwitterCard = () => {
             chrome: 'noheader, nofooter',
             width: '400',
           }}
-        />
+        /> */}
 
+<Countdown date={1628198344000} renderer={endCountDownRenderer} />
 
       </CardBody>
     </StyledTwitterCard>

@@ -4,7 +4,7 @@ import { Button, Modal } from '@lukkasromero/cswap-uikit'
 import ModalActions from 'components/ModalActions'
 import TokenInput from 'components/TokenInput'
 import useI18n from 'hooks/useI18n'
-import { getFullDisplayBalance } from 'utils/formatBalance'
+import { getFullDisplayBalance, fixForValues } from 'utils/formatBalance'
 
 interface DepositModalProps {
   max: BigNumber
@@ -14,19 +14,21 @@ interface DepositModalProps {
   depositFeeBP?: number
 }
 
-const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '', depositFeeBP = 0 }) => {
-
-
+const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '' , depositFeeBP = 0}) => {
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
   const TranslateString = useI18n()
   const fullBalance = useMemo(() => {
-    let decimals = 18;
-    if(tokenName === "CSWAP"){
-      decimals = 9
+    let decimals
+    if (tokenName === 'USDT' || tokenName === 'USDC') {
+      decimals = 6
+    } else if  (tokenName === 'WBTC') {
+      decimals = 8 
+    }  else {
+      decimals = 18
     }
-    return getFullDisplayBalance(max,decimals)
-  }, [max,tokenName])
+    return getFullDisplayBalance(max, decimals)
+  }, [max, tokenName])
 
   const handleChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {
@@ -36,7 +38,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   )
 
   const handleSelectMax = useCallback(() => {
-    setVal(fullBalance)
+    setVal(Number(fullBalance).toFixed(2))
   }, [fullBalance, setVal])
 
   return (
@@ -56,8 +58,15 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
         <Button
           disabled={pendingTx}
           onClick={async () => {
+            let newval:BigNumber
+            newval = new BigNumber(val)
+            if (tokenName === 'USDT' || tokenName === 'USDC') { 
+              newval = fixForValues(newval, 12)
+            } else if (tokenName === 'WBTC') {
+              newval = fixForValues(newval, 10)
+            }
             setPendingTx(true)
-            await onConfirm(val)
+            await onConfirm(newval.toString())
             setPendingTx(false)
             onDismiss()
           }}

@@ -41,6 +41,16 @@ const config: MenuEntry[] = [
 
 
 
+  {
+    label: 'Farms (OLD)',
+    icon: 'FarmIcon',
+    href: 'https://old.cswap.app/farms',
+  },
+  {
+    label: 'Pools (OLD)',
+    icon: 'PoolIcon',
+    href: 'https://old.cswap.app/nests',
+  },
 
   
 
@@ -93,8 +103,8 @@ const config: MenuEntry[] = [
         href: 'https://app.gitbook.com/@cryptoswap/s/cryptoswap/',
       },
        {
-         label: 'Chart (SOON)',
-         href: '/#',
+         label: 'Chart',
+         href: 'https://dex.guru/token/0x49ac2737a92c580ed253a067e1dcbdd82bde7682-polygon',
        }
     ],
   },

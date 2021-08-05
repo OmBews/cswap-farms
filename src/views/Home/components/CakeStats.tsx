@@ -65,6 +65,15 @@ const CakeStats = () => {
             {CSWAPPerBlock}
           </Text>
         </Row>
+
+        <Row>
+          <Text fontSize="14px">
+            Total Supply
+            </Text>
+          <Text bold fontSize="14px">
+            100000
+          </Text>
+        </Row>
       </CardBody>
     </StyledCakeStats>
   )

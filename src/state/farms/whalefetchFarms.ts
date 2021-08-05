@@ -114,7 +114,7 @@ const fetchFarms = async () => {
         },
         {
           address: getMasterChefAddress(),
-          name: 'krillPerBlock',
+          name: 'cswapPerBlock',
         },
       ])
 

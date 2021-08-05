@@ -86,11 +86,12 @@ interface FarmCardProps {
   removed: boolean
   cakePrice?: BigNumber
   bnbPrice?: BigNumber
+  btcPrice?: BigNumber
   ethereum?: provider
   account?: string
 }
 
-const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice, ethereum, account }) => {
+const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice, btcPrice,ethereum, account }) => {
   const TranslateString = useI18n()
 
   const [showExpandableSection, setShowExpandableSection] = useState(false)
@@ -113,8 +114,13 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
       return cakePrice.times(farm.lpTotalInQuoteToken)
     }
+
+    if (farm.quoteTokenSymbol === QuoteToken.WBTC) {
+      
+      return btcPrice.times(farm.lpTotalInQuoteToken)
+    }
     return farm.lpTotalInQuoteToken
-  }, [bnbPrice, cakePrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
+  }, [bnbPrice,btcPrice, cakePrice, farm.lpTotalInQuoteToken, farm.quoteTokenSymbol])
 
   const totalBTCValueFormatted = farm.lpTotalInBTC
     ? `${Number(farm.lpTotalInBTC).toLocaleString(undefined, { maximumFractionDigits: 8 })}`
@@ -192,8 +198,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           isTokenOnly={farm.isTokenOnly}
           bscScanAddress={
             farm.isTokenOnly
-              ? `https://quickswap.exchange/token/${farm.tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
-              : `https://quickswap.exchange/token/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`
+              ? `https://polygonscan.com/token/${farm.tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+              : `https://polygonscan.com/token/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`
           }
           totalValueFormated={totalValueFormatted}
           totalBTCValueFormatted ={totalBTCValueFormatted}

@@ -15,6 +15,7 @@ interface FarmCardActionsProps {
   tokenName?: string
   pid?: number
   depositFeeBP?: number
+  lpTokenPrice?: number
 }
 
 const IconButtonWrapper = styled.div`
@@ -24,17 +25,32 @@ const IconButtonWrapper = styled.div`
   }
 `
 
-const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalance, tokenName, pid, depositFeeBP }) => {
+const TextStyle = styled.div`
+  font-size: 13px;
+  font-weight: 200;
+  margin-top: 8px;
+  color: #333333;
+`
+
+const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalance, tokenName, pid, depositFeeBP, lpTokenPrice}) => {
   const TranslateString = useI18n()
   const { onStake } = useStake(pid)
   const { onUnstake } = useUnstake(pid)
 
-  const rawStakedBalance = getBalanceNumber(stakedBalance)
+  let decimals
+
+  if (tokenName === 'USDT' || tokenName === 'USDC') {
+    decimals = 6
+  } else if (tokenName === 'WBTC') {
+    decimals = 8
+  } else {
+    decimals = 18
+  }
+
+  const rawStakedBalance = getBalanceNumber(stakedBalance, decimals)
   const displayBalance = rawStakedBalance.toLocaleString()
 
-  const [onPresentDeposit] = useModal(
-    <DepositModal max={tokenBalance} onConfirm={onStake} tokenName={tokenName} depositFeeBP={depositFeeBP} />,
-  )
+  const [onPresentDeposit] = useModal(<DepositModal max={tokenBalance} onConfirm={onStake} tokenName={tokenName} depositFeeBP={depositFeeBP} />)
   const [onPresentWithdraw] = useModal(
     <WithdrawModal max={stakedBalance} onConfirm={onUnstake} tokenName={tokenName} />,
   )
@@ -56,7 +72,10 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({ stakedBalance, tokenBalan
 
   return (
     <Flex justifyContent="space-between" alignItems="center">
-      <Heading color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>{displayBalance}</Heading>
+      <Flex flexDirection="column">
+        <Heading color={rawStakedBalance === 0 ? 'textDisabled' : 'text'}>{displayBalance}</Heading>
+        {/* { rawStakedBalance > 0 ? <TextStyle>~${(lpTokenPrice * rawStakedBalance).toFixed(2)}</TextStyle> : '' } */}
+      </Flex>
       {renderStakingButtons()}
     </Flex>
   )

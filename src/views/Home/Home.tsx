@@ -13,6 +13,8 @@ import TotalValueLockedCard from './components/TotalValueLockedCard'
 import TwitterCard from './components/TwitterCard'
 import ReferralCard from "./components/ReferralCard"
 import AuditCard from "./components/AuditCard"
+import FarmsStartTime from "./components/FarmsStartTime"
+
 
 const Hero = styled.div`
   align-items: center;
@@ -62,11 +64,11 @@ const Home: React.FC = () => {
       <div>
         <Cards>
           <FarmStakingCard />
-          <AuditCard />
+          {/* <AuditCard /> */}
 
           <TwitterCard />
           <TotalValueLockedCard />
-        
+          <FarmsStartTime/>
 
         </Cards>
 

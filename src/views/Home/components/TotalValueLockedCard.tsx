@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Card, CardBody, Heading, Skeleton, Text } from '@lukkasromero/cswap-uikit'
 // eslint-disable-next-line import/no-unresolved
@@ -16,13 +16,18 @@ const TotalValueLockedCard = () => {
   const TranslateString = useI18n()
   // const data = useGetStats()
   const totalValue = useTotalValue()
-  // const tvl = totalValue.toFixed(2);
+  const tvl = totalValue.toFixed(2);
 
+
+  useEffect(()=>{
+
+    console.log("totalValue",totalValue.toNumber())
+  },[totalValue])
   return (
     <StyledTotalValueLockedCard>
       <CardBody>
         <Heading size="lg" mb="24px">
-          {TranslateString(999, 'Total Market Cap')}
+          Total Value Locked
         </Heading>
         <>
           {/* <Heading size="xl">{`$${tvl}`}</Heading> */}

@@ -78,7 +78,7 @@ const FarmedStakingCard = () => {
         </Heading>
         <img  alt="techrate" src="/images/techrate.png"   width={250}/>
          
-         <img  alt="rug doc" src="/images/rugdoc.png"   width={250} style={{marginTop:10}}/>
+         <img  alt="rug doc" src="/images/rugdocicon.png"   width={250} style={{marginTop:10}}/>
          
      
       </CardBody>
